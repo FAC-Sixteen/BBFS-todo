@@ -1,0 +1,17 @@
+{
+  "name": "skeleton",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dom.js",
+  "scripts": {
+    "test": "tape test.js | tap-spec"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tape": "^4.10.1"
+  },
+  "dependencies": {
+    "tap-spec": "^5.0.0"
+  }
+}
