@@ -9,9 +9,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "tape": "^4.10.1"
-  },
-  "dependencies": {
+    "tape": "^4.10.1",
     "tap-spec": "^5.0.0"
   }
 }
