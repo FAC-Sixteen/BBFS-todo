@@ -15,8 +15,13 @@
   // This function takes a todo, it returns the DOM node representing that todo
   var createTodoNode = function(todo) {
     var todoNode = document.createElement('li');
-    // you will need to use addEventListener
+    var span = document.createElement('span');
+    span.textContent = todo.description;
+    todoNode.appendChild(span);
 
+
+    // you will need to use addEventListener
+ 
     // add span holding description
 
     // this adds the delete button
@@ -28,6 +33,12 @@
     todoNode.appendChild(deleteButtonNode);
 
     // add markTodo button
+    var markTodoButtonNode = document.createElement('button');
+    markTodoButtonNode.addEventListener('click', function(event) {
+      var newState = todoFunctions.markTodo(state, todo.id);
+      update(newState);
+    });
+    todoNode.appendChild(markTodoButtonNode);
 
     // add classes for css
 
@@ -37,15 +48,19 @@
   // bind create todo form
   if (addTodoForm) {
     addTodoForm.addEventListener('submit', function(event) {
+      
       // https://developer.mozilla.org/en-US/docs/Web/Events/submit
       // what does event.preventDefault do?
+      event.preventDefault();
       // what is inside event.target?
-
-      var description = '?'; // event.target ....
-
+      console.log(event);
+      var description = document.getElementById('input').value; // event.target ....
+      document.getElementById('input').value = "";
       // hint: todoFunctions.addTodo
-      var newState = []; // ?? change this!
+      
+      var newState = todoFunctions.addTodo(state, description); // ?? change this!
       update(newState);
+      console.log(state);
     });
   }
 
