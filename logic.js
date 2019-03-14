@@ -60,9 +60,17 @@ var todoFunctions = {
     // var markedList = todos.map(obj => obj);
     // let markedList = todoFunctions.cloneArrayOfObjects(todos)
 
-    var markedList = todoFunctions.cloneArrayOfObjects(todos).map(obj => {(obj.id === idToMark ? obj.done = true : '' ); 
-    return obj});
-    console.log(todos);
+    var markedList = todoFunctions.cloneArrayOfObjects(todos).map(obj => {
+      if(obj.id === idToMark){
+        if(obj.done === false){
+          obj.done = true;
+        }
+        else {
+          obj.done = false}
+        }
+    return obj
+  });
+    console.log(markedList);
     return markedList;
   },
   sortTodos: function(todos, sortFunction) {
