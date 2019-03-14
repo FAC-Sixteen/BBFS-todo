@@ -1,7 +1,7 @@
 var test = require('tape');
 var logic = require('./logic');
 
-var testList =  [
+var currentList =  [
       {
        id: 0,
        description: 'make smoothie out of things that should really be cooked',
@@ -9,16 +9,10 @@ var testList =  [
      }
    ];
 
-var secondTestList =  [
-    {
-     id: 0,
-     description: 'make smoothie out of things that should really be cooked',
-     done: false,
-   }
- ];
+var listItem =  'make smoothie out of things that should really be cooked';
 
 test('first parameter remains unchanged', function(t) {
-  logic.addTodo(testList, secondTestList);
+  logic.addTodo(currentList, listItem);
   
   const expected = [
     {
@@ -28,20 +22,20 @@ test('first parameter remains unchanged', function(t) {
    }
  ];
  
-  t.deepEqual(testList, expected, "first param should return the testList")
+  t.deepEqual(currentList, expected, "first param should return the currentList")
   //t.pass();
   t.end();
 });
 
 test('Returns todos and a copy of todos', function(t) {
-  const actual =  logic.addTodo(testList, secondTestList);
+  const actual =  logic.addTodo(currentList, listItem);
   const expected = [
     {
      id: 0,
      description: 'make smoothie out of things that should really be cooked',
      done: false,
    }, {
-    id: 0,
+    id: 2,
     description: 'make smoothie out of things that should really be cooked',
     done: false,
   }
@@ -53,8 +47,7 @@ test('Returns todos and a copy of todos', function(t) {
 });
 
 test('newTodo Id should return new Id value', function(t) {
-  logic.addTodo(testList, secondTestList)
-  console.log(secondTestList[0].id)
+  logic.addTodo(currentList, listItem)
   const expected = [
     {
      id: 3,
@@ -62,8 +55,9 @@ test('newTodo Id should return new Id value', function(t) {
      done: false,
    }
  ];
- 
-  t.deepEqual(secondTestList, expected, "Id for secondTestList should be updated")
+ console.log(updatedList);
+
+  t.deepEqual(listObject, expected, "Id for listItem should be updated")
   //t.pass();
   t.end();
 });
