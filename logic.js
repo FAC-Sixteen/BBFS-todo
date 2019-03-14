@@ -62,11 +62,11 @@ var todoFunctions = {
 
     var markedList = todoFunctions.cloneArrayOfObjects(todos).map(obj => {
       if(obj.id === idToMark){
-        if(obj.done === false){
-          obj.done = true;
+        if(obj.done === true){
+          obj.done = false;
         }
         else {
-          obj.done = false}
+          obj.done = true}
         }
     return obj
   });
