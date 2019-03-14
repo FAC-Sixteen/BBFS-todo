@@ -38,7 +38,6 @@ var todoFunctions = {
 
     let updatedList = todoFunctions.cloneArrayOfObjects(todos).concat(listObject);
   
-    //console.log(updatedList)
     return updatedList;
   },
   

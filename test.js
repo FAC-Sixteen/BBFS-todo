@@ -47,17 +47,23 @@ test('Returns todos and a copy of todos', function(t) {
 });
 
 test('newTodo Id should return new Id value', function(t) {
-  logic.addTodo(currentList, listItem)
-  const expected = [
-    {
-     id: 3,
-     description: 'make smoothie out of things that should really be cooked',
-     done: false,
-   }
- ];
- console.log(updatedList);
+  const actual = logic.addTodo(currentList, listItem);
+  const expected = 3;
+ // console.log(testTodo);
 
-  t.deepEqual(listObject, expected, "Id for listItem should be updated")
+  t.deepEqual(actual[1].id, expected, "Id for listItem should be updated")
+  //t.pass();
+  t.end();
+});
+
+test('testing list length', function(t) {
+  const firstListResult = logic.addTodo(currentList, listItem);
+  const secondListResult = logic.addTodo(firstListResult, listItem);
+  const actual = secondListResult.length
+  const expected = 3;
+ // console.log(testTodo);
+
+  t.deepEqual(actual, expected, "secondListResult should have 3 items")
   //t.pass();
   t.end();
 });
