@@ -129,3 +129,40 @@ test('item with deleteId should not exist', function (t) {
   t.deepEqual(actual, expected, "input is not the same as output");
   t.end();
 });
+
+// Tests for markTodo
+
+test('mark function: should leave input argument todos unchanged', function (t) {
+  logic.markTodo(deleteList, 1);
+  const actual = deleteList;
+  const expected = [{
+    id: 0,
+    description: 'make smoothie out of things that should really be cooked',
+    done: false,
+  },
+  {
+    id: 1,
+    description: 'make smoothie out of things that should really be cooked',
+    done: false,
+  }];
+  t.deepEqual(actual, expected, "Original list remains unchanged");
+  t.end();
+});
+
+
+
+test('in the new todo array, all elements will remain unchanged except the one with id: idToMark', function (t) {
+  const actual = logic.markTodo(deleteList, 1);;
+  const expected = [{
+    id: 0,
+    description: 'make smoothie out of things that should really be cooked',
+    done: false,
+  },
+  {
+    id: 1,
+    description: 'make smoothie out of things that should really be cooked',
+    done: true,
+  }];
+  t.deepEqual(actual, expected, "last item should have done key marked as true");
+  t.end();
+});
