@@ -34,9 +34,12 @@
 
     // add markTodo button
     var markTodoButtonNode = document.createElement('button');
+    markTodoButtonNode.classList.add("markbutton");
+    markTodoButtonNode.setAttribute('id', todo.id);
     markTodoButtonNode.addEventListener('click', function(event) {
       var newState = todoFunctions.markTodo(state, todo.id);
       update(newState);
+      activebutton(newState);
     });
     todoNode.appendChild(markTodoButtonNode);
 
@@ -44,6 +47,24 @@
 
     return todoNode;
   };
+
+   // you CANNOT change this function
+   var update = function(newState) {
+  
+    state = newState;
+    renderState(state);
+  };
+
+  var activebutton = function (todo) {
+  todo.map(function (x) {
+      let el = document.getElementById(x.id);
+      if (x.done === true) {
+        el.classList.add('active');
+      }
+    })
+  }
+
+  
 
   // bind create todo form
   if (addTodoForm) {
@@ -63,12 +84,6 @@
       console.log(state);
     });
   }
-
-  // you should not need to change this function
-  var update = function(newState) {
-    state = newState;
-    renderState(state);
-  };
 
   // you do not need to change this function
   var renderState = function(state) {

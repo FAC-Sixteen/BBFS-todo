@@ -68,7 +68,7 @@ var todoFunctions = {
         else {
           obj.done = true}
         }
-    return obj
+    return obj;
   });
     console.log(markedList);
     return markedList;

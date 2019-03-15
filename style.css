@@ -1,0 +1,13 @@
+.markbutton {
+    background-color: white;
+}
+
+.active {
+    background-color: green;
+}
+
+button {
+    height: 10vh;
+    width: 10vh;
+    border-radius: 50%;
+}
