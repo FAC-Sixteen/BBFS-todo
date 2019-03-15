@@ -1,21 +1,21 @@
 // part 2 linking it all together
 // The function here is called an iife,
 // it keeps everything inside hidden from the rest of our application
-(function() {
+(() => {
   // This is the dom node where we will keep our todo
-  var container = document.getElementById('todo-container');
-  var addTodoForm = document.getElementById('add-todo');
+  let container = document.getElementById('todo-container');
+  let addTodoForm = document.getElementById('add-todo');
 
-  var state = [
+  let state = [
     { id: -3, description: 'first todo' },
     { id: -2, description: 'second todo' },
     { id: -1, description: 'third todo' },
   ]; // this is our initial todoList
 
   // This function takes a todo, it returns the DOM node representing that todo
-  var createTodoNode = function(todo) {
-    var todoNode = document.createElement('li');
-    var span = document.createElement('span');
+  let createTodoNode = todo => {
+    let todoNode = document.createElement('li');
+    let span = document.createElement('span');
     span.textContent = todo.description;
     todoNode.appendChild(span);
 
@@ -25,17 +25,17 @@
     // add span holding description
 
     // this adds the delete button
-    var deleteButtonNode = document.createElement('button');
-    deleteButtonNode.addEventListener('click', function(event) {
-      var newState = todoFunctions.deleteTodo(state, todo.id);
+    let deleteButtonNode = document.createElement('button');
+    deleteButtonNode.addEventListener('click', event => {
+      let newState = todoFunctions.deleteTodo(state, todo.id);
       update(newState);
     });
     todoNode.appendChild(deleteButtonNode);
 
     // add markTodo button
-    var markTodoButtonNode = document.createElement('button');
-    markTodoButtonNode.addEventListener('click', function(event) {
-      var newState = todoFunctions.markTodo(state, todo.id);
+    let markTodoButtonNode = document.createElement('button');
+    markTodoButtonNode.addEventListener('click', event => {
+      let newState = todoFunctions.markTodo(state, todo.id);
       update(newState);
     });
     todoNode.appendChild(markTodoButtonNode);
@@ -47,36 +47,40 @@
 
   // bind create todo form
   if (addTodoForm) {
-    addTodoForm.addEventListener('submit', function(event) {
+    addTodoForm.addEventListener('submit', event => {
       
       // https://developer.mozilla.org/en-US/docs/Web/Events/submit
       // what does event.preventDefault do?
       event.preventDefault();
       // what is inside event.target?
       console.log(event);
-      var description = document.getElementById('input').value; // event.target ....
+      let description = document.getElementById('input').value; // event.target ....
       document.getElementById('input').value = "";
       // hint: todoFunctions.addTodo
       
-      var newState = todoFunctions.addTodo(state, description); // ?? change this!
+      if (description.length > 0 && description.length<= 30){
+      let newState = todoFunctions.addTodo(state, description); // ?? change this!
       update(newState);
-      console.log(state);
+      }else if(description.length == 0){
+        alert('Enter a task!');  
+      } else {
+        alert('Your task is too long!');
+      }
     });
   }
 
   // you should not need to change this function
-  var update = function(newState) {
+  let update = newState => {
     state = newState;
     renderState(state);
+    console.log(state)
   };
 
   // you do not need to change this function
-  var renderState = function(state) {
-    var todoListNode = document.createElement('ul');
-
-    state.forEach(function(todo) {
-      todoListNode.appendChild(createTodoNode(todo));
-    });
+  let renderState = state => {
+    const todoListNode = document.createElement('ol');
+     console.log('the list')
+    state.forEach(todo => todoListNode.appendChild(createTodoNode(todo)));
 
     // you may want to add a class for css
     container.replaceChild(todoListNode, container.firstChild);
