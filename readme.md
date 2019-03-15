@@ -8,7 +8,7 @@ Type `npm i` in the terminal to install the package manager (this includes the p
 
 Type `npm test` to run tests on all the functions contained in the `todoFunctions` object. These are the functions that make the to-do list work.
 
-To see the to-do list in action, either open the index.html file locally or see it on GitHub pages: [link here].
+To see the to-do list in action, either open the index.html file locally or see it on GitHub pages: https://fac-sixteen.github.io/BBFS-todo/.
 
 ## User journey:
 
