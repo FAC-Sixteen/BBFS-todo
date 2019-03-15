@@ -26,9 +26,18 @@ To see the to-do list in action, either open the index.html file locally or see 
 3. mark tasks as complete so that I can focus on the tasks I have left
 4. the to-dos to be large enough so that I don't hit the wrong one with my thumb
 
+
+## Our approach
+
+1. Read project task thoroughly to ensure we all are on the same page.
+2. Together we decided to all work on one laptop throughout most part of the project.
+2. After the code review session we split up into pairs to resolve raised issues.
+
+
+
 ## What we learnt
 
-A lot!
+Biggest lesson we have learnt take time with writing thorough tests!
 
 ## Contributors:
 
