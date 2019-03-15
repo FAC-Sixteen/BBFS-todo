@@ -6,6 +6,9 @@ For this project we used the following:
 1. Unit testing
 2. TDD 
 3. DOM manipulation
+4. Tape
+5. Tape-spec
+
 
 ## How to run this repo
 
