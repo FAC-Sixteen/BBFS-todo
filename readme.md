@@ -40,7 +40,9 @@ To see the to-do list in action, either open the index.html file locally or see 
 
 ## What we learnt
 
+
 Biggest lesson we have learnt take time with writing thorough tests!
+
 
 ## Contributors:
 
