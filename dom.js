@@ -78,8 +78,8 @@
 
   // you do not need to change this function
   let renderState = state => {
-    let todoListNode = document.createElement('ul');
-
+    const todoListNode = document.createElement('ol');
+     console.log('the list')
     state.forEach(todo => todoListNode.appendChild(createTodoNode(todo)));
 
     // you may want to add a class for css
