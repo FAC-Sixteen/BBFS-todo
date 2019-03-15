@@ -58,9 +58,14 @@
       document.getElementById('input').value = "";
       // hint: todoFunctions.addTodo
       
+      if (description.length > 0 && description.length<= 30){
       var newState = todoFunctions.addTodo(state, description); // ?? change this!
       update(newState);
-      console.log(state);
+      }else if(description.length == 0){
+        alert('Enter a task!'); 
+      } else {
+        alert('Your task is too long!');
+      }
     });
   }
 
