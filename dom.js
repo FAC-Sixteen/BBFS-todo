@@ -62,7 +62,7 @@
       var newState = todoFunctions.addTodo(state, description); // ?? change this!
       update(newState);
       }else if(description.length == 0){
-        alert('Enter a task!'); 
+        alert('Enter a task!');  
       } else {
         alert('Your task is too long!');
       }
