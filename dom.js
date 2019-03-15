@@ -26,6 +26,7 @@
 
     // this adds the delete button
     var deleteButtonNode = document.createElement('button');
+
     deleteButtonNode.addEventListener('click', function(event) {
       var newState = todoFunctions.deleteTodo(state, todo.id);
       update(newState);
@@ -81,7 +82,7 @@
       
       var newState = todoFunctions.addTodo(state, description); // ?? change this!
       update(newState);
-      console.log(state);
+      activebutton(newState);
     });
   }
 
