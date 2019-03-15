@@ -25,18 +25,25 @@
     // add span holding description
 
     // this adds the delete button
+
     let deleteButtonNode = document.createElement('button');
     deleteButtonNode.addEventListener('click', event => {
       let newState = todoFunctions.deleteTodo(state, todo.id);
+
       update(newState);
     });
     todoNode.appendChild(deleteButtonNode);
 
     // add markTodo button
+
     let markTodoButtonNode = document.createElement('button');
+    markTodoButtonNode.classList.add("markbutton");
+    markTodoButtonNode.setAttribute('id', todo.id);
     markTodoButtonNode.addEventListener('click', event => {
       let newState = todoFunctions.markTodo(state, todo.id);
+
       update(newState);
+      activebutton(newState);
     });
     todoNode.appendChild(markTodoButtonNode);
 
@@ -44,6 +51,24 @@
 
     return todoNode;
   };
+
+   // you CANNOT change this function
+   var update = function(newState) {
+  
+    state = newState;
+    renderState(state);
+  };
+
+  var activebutton = function (todo) {
+  todo.map(function (x) {
+      let el = document.getElementById(x.id);
+      if (x.done === true) {
+        el.classList.add('active');
+      }
+    })
+  }
+
+  
 
   // bind create todo form
   if (addTodoForm) {
@@ -61,13 +86,15 @@
       if (description.length > 0 && description.length<= 30){
       let newState = todoFunctions.addTodo(state, description); // ?? change this!
       update(newState);
-      }else if(description.length == 0){
+      activebutton(newState);
+              }else if(description.length == 0){
         alert('Enter a task!');  
       } else {
         alert('Your task is too long!');
       }
     });
   }
+
 
   // you should not need to change this function
   let update = newState => {
