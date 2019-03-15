@@ -52,12 +52,6 @@
     return todoNode;
   };
 
-   // you CANNOT change this function
-   var update = function(newState) {
-  
-    state = newState;
-    renderState(state);
-  };
 
   var activebutton = function (todo) {
   todo.map(function (x) {
