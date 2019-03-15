@@ -1,3 +1,12 @@
+## Our project
+
+This is our To-do app. We were provided with a skeleton of a working app, our task was to make this a fully functional app. 
+For this project we used the following:
+
+1. Unit testing
+2. TDD 
+3. DOM manipulation
+
 ## How to run this repo
 
 To run this repository, clone it to a local folder.
@@ -16,6 +25,10 @@ To see the to-do list in action, either open the index.html file locally or see 
 2. view the tasks I have added in a list so that I can plan my day
 3. mark tasks as complete so that I can focus on the tasks I have left
 4. the to-dos to be large enough so that I don't hit the wrong one with my thumb
+
+## What we learnt
+
+A lot!
 
 ## Contributors:
 
