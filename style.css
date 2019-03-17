@@ -1,52 +1,131 @@
 .markbutton {
     background-color: white;
+    background: url(./assets/icons8-light-on-40.png);
+    border: none;
+    width: 20px;
+    height:20px;
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    display: flex;
+    justify-content: flex-end;
+    float: right;
+    position: static;
 }
 
 .active {
-    background-color: green;
+    background-color:green;
+    background: url(./assets/icons8-light-on-40\ \(1\).png);
+    border: none;
+    width: 20px;
+    height:20px;
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    display: flex;
+    justify-content: flex-end;
+    float: right;
+    position: static;
+}
+
+.complete .description-container{
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+
+.delete-button {
+    background: url(./assets/icons8-waste-48.png);
+    border: none;
+    width: 20px;
+    height:20px;
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
 }
 
 button {
-    height: 5vw;
-    width: 5vw;
-    border-radius: 50%;
-    margin: 0px 10px;
+    height: 20px;
+    width: 20px;
+    /* border-radius: 50%; */
+    margin: 1px 5px;
+    /* position: absolute; */
+    
 }
 
-.buttoncontainer {
-    background-color: red; 
+button:hover {
+    cursor: pointer;
 }
 
-ul {
-    list-style-type: none;
+button:focus {
+    outline: none !important;
 }
+
+span .button-container {
+    display: flex;
+    justify-content: flex-end;
+    float: right;
+    width: 10px;
+    
+}
+
+.description-container {
+    margin: 40px 10px;
+    width: 30vw;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+}
+
 
 #todo-container li span {
-    display: inline-block;
-    width: 20vw;
+    /* display: inline-block; */
+    /* width: ; */
     font-size: 3vw;
+    width: 50%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+    margin: 0px 0px;
 }
 
-#todo-container {
+li {
+    /* display: flex;
+    flex-direction: row;
+    justify-content: center; */
+    margin: 15px 0px;
+    border-bottom: 1px solid rgb(206, 134, 0);
+}
+/* 
+ol {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+} */
+
+/* #todo-container li button {
+    display: inline-flex;
+    position: relative;
+} */
+
+/* #todo-container {
     width: 50vw;
     display: flex;
-    justify-content: flex-start;
-}
+    justify-content: space-evenly;
+    margin-top: 20px;
+} */
 
 #add-todo {
     width: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
-
     background-color: #ffdcb4;
 }
 
 #outer-container {
     width: 50vw;
     background-color: #ffdcb4;
-
+    
 }
+
 #flexbox {
     display: flex;
     justify-content: center;
@@ -60,19 +139,34 @@ h1 {
 
 #submit {
     width: 20%;
-    font-size: 2vw;
-    padding:5px 15px; 
-   
+    height: 20px;
+    font-size: 0.4em;
+    /* padding:5px 0px;  */
     margin-bottom: 10px;
     background: orange; 
     border:0 none;
     cursor:pointer;
-    -webkit-border-radius: 5px;
-    border-radius: 5px; 
+    -webkit-border-radius: 100px;
+    border-radius: 100px; 
+}
+
+#submit:focus {
+    outline: none !important;
+}
+#submit:hover {
+   background: rgb(230, 149, 0);
 }
 
 #input {
     width: 70%;
     margin-bottom: 10px;
-    height: 4vh;
+    height: 20px;
+    border-radius: 100px;
+    border:0 none;
+    -webkit-border-radius: 100px;
+}
+
+#input:focus {
+    outline: none !important;
+    border: solid orange;
 }
