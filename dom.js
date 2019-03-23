@@ -15,9 +15,23 @@
   // This function takes a todo, it returns the DOM node representing that todo
   let createTodoNode = todo => {
     let todoNode = document.createElement('li');
-    let span = document.createElement('span');
-    span.textContent = todo.description;
-    todoNode.appendChild(span);
+    // let span = document.createElement('span');
+    // span.textContent = todo.description;
+    // todoNode.appendChild(span);
+    if (todo.done == true) {
+      todoNode.classList.add('complete');
+    }
+
+    //creating description container
+    let descriptionContainer = document.createElement('span'); 
+    descriptionContainer.classList.add('description-container');
+    descriptionContainer.textContent = todo.description;
+    todoNode.appendChild(descriptionContainer);
+
+    //creating a button container
+    let buttonContainer = document.createElement('span');
+    todoNode.appendChild(buttonContainer);
+    buttonContainer.classList.add('button-container');
 
 
     // you will need to use addEventListener
@@ -27,12 +41,14 @@
     // this adds the delete button
 
     let deleteButtonNode = document.createElement('button');
+    deleteButtonNode.classList.add('delete-button');
     deleteButtonNode.addEventListener('click', event => {
       let newState = todoFunctions.deleteTodo(state, todo.id);
 
       update(newState);
+      activebutton(newState);
     });
-    todoNode.appendChild(deleteButtonNode);
+    buttonContainer.appendChild(deleteButtonNode);
 
     // add markTodo button
 
@@ -45,7 +61,7 @@
       update(newState);
       activebutton(newState);
     });
-    todoNode.appendChild(markTodoButtonNode);
+    buttonContainer.appendChild(markTodoButtonNode);
 
     // add classes for css
 
